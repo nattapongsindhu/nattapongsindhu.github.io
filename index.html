@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | Nattapong Sindhu</title>
+  <title>Nattapong — Personal Site</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
@@ -128,6 +128,24 @@
     .about-meta span {
       display: block;
     }
+
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--rule);
+    }
+
+    .about-meta a {
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .about-meta a:hover { color: var(--ink); }
 
     .about-intro {
       font-size: 1rem;
@@ -305,12 +323,14 @@
 
       <div class="about-header">
         <div>
+          <img src="profile1.jpg" alt="Nattapong Sindhu" class="profile-photo" />
           <h1 class="about-name">Nattapong<br/>Sindhu</h1>
           <p class="about-tagline">The USPS Mechanic Who Minds His Own Business — But Takes Care of Himself</p>
           <div class="about-meta">
             <span>Pasadena, California</span>
             <span>USPS Maintenance Mechanic</span>
             <span>Thai Heritage</span>
+            <span><a href="https://www.linkedin.com/in/nattapong-sindhu-8313b4130" target="_blank">LinkedIn</a></span>
           </div>
         </div>
         <div>
