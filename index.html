@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nattapong — Personal Site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --off-white: #f9f8f6;
+      --ink: #1a1a1a;
+      --ink-light: #555550;
+      --rule: #d8d6d0;
+      --accent: #1a1a1a;
+      --font-serif: 'EB Garamond', Georgia, serif;
+      --font-mono: 'DM Mono', 'Courier New', monospace;
+      --max: 780px;
+      --nav-h: 56px;
+    }
+
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      font-family: var(--font-serif);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      gap: 0;
+    }
+
+    .nav-brand {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      text-decoration: none;
+      margin-right: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--ink); }
+
+    /* ── PAGES ── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* ── ABOUT PAGE ── */
+    .about-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin-bottom: 3.5rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .about-name {
+      font-size: 2.6rem;
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .about-tagline {
+      font-style: italic;
+      color: var(--ink-light);
+      font-size: 1.05rem;
+      margin-top: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .about-meta {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--ink-light);
+      line-height: 2;
+      margin-top: 1.5rem;
+    }
+
+    .about-meta span {
+      display: block;
+    }
+
+    .about-intro {
+      font-size: 1rem;
+      color: var(--ink-light);
+      line-height: 1.8;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title {
+      font-size: 1.45rem;
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 1.25rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    /* goals list */
+    .goals {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .goals li {
+      display: flex;
+      gap: 1rem;
+      padding: 0.6rem 0;
+      border-top: 1px solid var(--rule);
+      font-size: 0.95rem;
+    }
+
+    .goals li:last-child { border-bottom: 1px solid var(--rule); }
+
+    .goals .goal-type {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      min-width: 90px;
+      padding-top: 0.15rem;
+    }
+
+    /* summary block */
+    .summary-block {
+      background: var(--off-white);
+      padding: 2rem 2.25rem;
+      border-left: 2px solid var(--ink);
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--ink);
+    }
+
+    /* ── WORK/LIFE PAGE ── */
+    .wl-intro {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--ink-light);
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--rule);
+      line-height: 1.75;
+    }
+
+    /* ── PROJECTS PAGE ── */
+    .coming-soon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 40vh;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .coming-soon-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    .coming-soon-title {
+      font-size: 2.2rem;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .coming-soon-sub {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: var(--ink-light);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-name {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    .footer-loc {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      color: var(--ink-light);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .about-header { grid-template-columns: 1fr; gap: 1.5rem; }
+      .about-name { font-size: 2rem; }
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      .container { padding: 2.5rem 1.25rem 5rem; }
+      footer { flex-direction: column; gap: 0.5rem; align-items: flex-start; padding: 1.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-brand" onclick="showPage('about')">Nattapong</a>
+    <ul class="nav-links">
+      <li><a onclick="showPage('projects')" id="nav-projects">Projects</a></li>
+      <li><a onclick="showPage('worklife')" id="nav-worklife">Work / Life</a></li>
+      <li><a onclick="showPage('about')" id="nav-about" class="active">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── ABOUT ── -->
+  <div class="page active" id="page-about">
+    <div class="container">
+
+      <div class="about-header">
+        <div>
+          <h1 class="about-name">Nattapong<br/>Sindhu</h1>
+          <p class="about-tagline">The USPS Mechanic Who Minds His Own Business — But Takes Care of Himself</p>
+          <div class="about-meta">
+            <span>Pasadena, California</span>
+            <span>USPS Maintenance Mechanic</span>
+            <span>Thai Heritage</span>
+          </div>
+        </div>
+        <div>
+          <p class="about-intro">I live quietly in California. Built a steady life in the U.S. through consistency, self-reliance, and a strong work ethic. My job involves diagnosing, repairing, and maintaining high-speed mail processing machines — the backbone of the nation's postal system.</p>
+          <p class="about-intro" style="margin-top:1rem;">Debt-free. No unnecessary subscriptions. No financial chaos. Just clean simplicity — steady income, reasonable savings, and personal control. That quiet control, not luxury, defines my sense of peace.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Long-Term Vision</div>
+        <h2 class="section-title">Education, Flight, and Freedom</h2>
+        <ul class="goals">
+          <li>
+            <span class="goal-type">Education</span>
+            <span>Earn a Master's or PhD in Economics or Engineering from a major university.</span>
+          </li>
+          <li>
+            <span class="goal-type">Aviation</span>
+            <span>Acquire a Bush Flying Pilot License — enabling operation of small aircraft on rugged, remote terrain.</span>
+          </li>
+          <li>
+            <span class="goal-type">Financial</span>
+            <span>Achieve freedom where every purchase — food, tools, or travel — is a choice, not a calculation.</span>
+          </li>
+          <li>
+            <span class="goal-type">Personal</span>
+            <span>Meet a kind, emotionally healthy partner who values peace, honesty, and shared growth.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Personality</div>
+        <h2 class="section-title">A Quietly Functional Introvert</h2>
+        <p>Introverted, pragmatic, and highly independent. I don't talk much, don't chase social validation, and rarely involve myself in unnecessary drama. If someone irritates me, the reaction is brief — irritation passes, focus returns to tasks at hand.</p>
+        <p>At work, I collaborate but never compete for attention. My satisfaction comes from fixing complex mechanical issues others can't. That niche competence gives me quiet pride.</p>
+        <p>I don't need to impress anyone. I prefer competence over conversation. Still, there's a curiosity blooming beneath that calm — a wonder about the wider world beyond steady routines.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Origin</div>
+        <h2 class="section-title">Self-Pride and Where I Came From</h2>
+        <p>I grew up poor in Thailand but never used that as an excuse. Instead, it served as fuel for self-discipline. Against statistical odds, I earned a Master's degree from Thammasat University — one of Thailand's top institutions.</p>
+        <p>I now live independently in Los Angeles, proud of a clean record: no drugs, no gambling, no shortcuts. Every accomplishment came from consistent effort and long hours.</p>
+        <p>That discipline continues today — USPS maintenance mechanic by day, cybersecurity student and pilot trainee by night. My story isn't dramatic. It's methodical. Progress is quiet but certain.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Summary</div>
+        <div class="summary-block">
+          A man in his forties with no debt, stable income, strong technical ability, and forward-focused goals. A thinker who values structure and learning more than appearances. A man who maintains machines by profession — and himself by nature.<br/><br/>
+          I keep my world small: deliberate, minimalist, functional. Yet within that simplicity lies ambition — to keep improving, to expand my mind, and to secure freedom — financial, personal, and emotional.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── WORK / LIFE ── -->
+  <div class="page" id="page-worklife">
+    <div class="container">
+
+      <p class="wl-intro">An honest record of daily structure, evolving habits, and the systems that keep things running.</p>
+
+      <div class="section">
+        <div class="section-label">Daily Structure</div>
+        <h2 class="section-title">Routine and Grounded Discipline</h2>
+        <p>Every day begins at 05:30 AM. I drive about 20 minutes through early-morning Los Angeles traffic to reach the Pasadena plant, where the hum of machinery sets the rhythm of the day. The work is physical, technical, and structured — perfect for someone who values order and tangible results.</p>
+        <p>After my shift ends at 3 PM, the drive home — about 30 minutes through Silver Lake to Santa Monica Boulevard — marks the transition back into personal life. Evenings are simple: eat, unwind, and usually play a game before going to bed around midnight.</p>
+        <p>My days off — Wednesday and Thursday — are reserved for domestic resets. Laundry, grocery shopping, light errands — all within a 3-mile radius. The structure gives balance. Stability breeds clarity.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Gaming</div>
+        <h2 class="section-title">A Chapter Nearing Its End</h2>
+        <p>For years, gaming filled my evenings across three platforms. On PS5, EA Sports FC 26 — focusing purely on player evolution and card collection, intentionally avoiding microtransactions. Progress must be earned, never purchased.</p>
+        <p>On PC, Hearts of Iron IV on Steam — a detailed grand-strategy game that sharpens analytical thinking: resource management, planning, logistics. Skills that overlap directly with engineering maintenance and cybersecurity.</p>
+        <p>On mobile, Genshin Impact for three years — spending only occasionally. But recently, something changed. The desire to grind digital missions began to fade.</p>
+        <p>I realized that time is a non-renewable resource — and hours spent farming virtual rewards could be redirected toward certifications, career goals, or physical health. Quitting gaming isn't rejection. It's evolution.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Health</div>
+        <h2 class="section-title">Physical Condition</h2>
+        <p>My health reflects quiet balance. The migraines that once bothered me vanished last year. I don't spend hours at the gym, but I stay active through monthly hikes at Griffith Park, walking 1–3 miles each session.</p>
+        <p>No trend diets. No fitness influencers. Just genuine, manageable physical upkeep. At my age, sustainability matters more than intensity. The goal is not bodybuilding — it's function and endurance.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Finance</div>
+        <h2 class="section-title">Financial Stability and Mindset</h2>
+        <p>I manage finances with quiet precision. Income covers all essential expenses, and I save regularly. Having no debt is not just a financial status — it's a mental advantage.</p>
+        <p>I am exploring a second job — not from financial desperation, but purpose. Areas of interest: IT and Healthcare. Both share long-term demand and upward mobility. Rather than dabble in risky trends, I think in executable systems: structured, certification-based professional upskilling.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Education</div>
+        <h2 class="section-title">Balancing Two Paths — Cybersecurity and Aviation</h2>
+        <p>I currently study two fields simultaneously: IT &amp; Cybersecurity at Los Angeles City College and Pilot Training at Glendale Community College.</p>
+        <p>The combination might look unusual — but not for me. IT satisfies logic and precision; aviation fulfills curiosity, freedom, and challenge. The overlap between both: systems thinking, situational awareness, and responsibility.</p>
+        <p>My only concern is burnout. I combat this by structuring tasks around natural time windows — morning alertness for studying, post-shift slots for reading, weekends for assessments. No procrastination. Assignments are completed early. Front-load tasks, avoid last-minute stress. So far, it's working.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── PROJECTS ── -->
+  <div class="page" id="page-projects">
+    <div class="container">
+      <div class="coming-soon">
+        <span class="coming-soon-label">Projects</span>
+        <h2 class="coming-soon-title">Coming soon.</h2>
+        <p class="coming-soon-sub">Work in progress — check back later.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-name">Nattapong Sindhu</span>
+    <span class="footer-loc">Los Angeles, California</span>
+  </footer>
+
+  <script>
+    function showPage(name) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      document.getElementById('page-' + name).classList.add('active');
+      document.getElementById('nav-' + name).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
