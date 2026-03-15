@@ -261,7 +261,66 @@
       gap: 1rem;
     }
 
-    .coming-soon-label {
+    .easter-egg {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--white);
+      border: 1px solid var(--ink);
+      padding: 2rem 2.5rem;
+      z-index: 999;
+      text-align: center;
+      max-width: 340px;
+      width: 90%;
+      box-shadow: 4px 4px 0px var(--ink);
+    }
+
+    .easter-egg.show { display: block; animation: popIn 0.3s ease; }
+
+    @keyframes popIn {
+      0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+
+    .easter-egg-emoji { font-size: 2.5rem; margin-bottom: 0.75rem; }
+
+    .easter-egg-text {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .easter-egg-close {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--white);
+      border: none;
+      padding: 0.5rem 1.25rem;
+      cursor: pointer;
+    }
+
+    .easter-egg-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      z-index: 998;
+    }
+
+    .easter-egg-overlay.show { display: block; }
+
+    .clickable-name {
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .clickable-name:hover { opacity: 0.6; }
       font-family: var(--font-mono);
       font-size: 0.65rem;
       letter-spacing: 0.18em;
@@ -336,7 +395,7 @@
       <div class="about-header">
         <div>
           <img src="profile1.jpg" alt="Nattapong Sindhu" class="profile-photo" />
-          <h1 class="about-name">Nattapong<br/>Sindhu</h1>
+          <h1 class="about-name clickable-name" onclick="showEasterEgg()">Nattapong<br/>Sindhu</h1>
           <p class="about-tagline">The USPS Mechanic Who Minds His Own Business — But Takes Care of Himself</p>
           <div class="about-meta">
             <div class="meta-item">
@@ -468,12 +527,35 @@
     </div>
   </div>
 
+  <div class="easter-egg-overlay" id="overlay" onclick="hideEasterEgg()"></div>
+  <div class="easter-egg" id="easterEgg">
+    <div class="easter-egg-emoji">🔧</div>
+    <p class="easter-egg-text">
+      You found me.<br/><br/>
+      I fix machines for a living,<br/>
+      study cybersecurity at night,<br/>
+      and train to fly on weekends.<br/><br/>
+      <em>Still not sure which one is the real job.</em>
+    </p>
+    <button class="easter-egg-close" onclick="hideEasterEgg()">Close</button>
+  </div>
+
   <footer>
     <span class="footer-name">Nattapong Sindhu</span>
     <span class="footer-loc">Los Angeles, California</span>
   </footer>
 
   <script>
+    function showEasterEgg() {
+      document.getElementById('easterEgg').classList.add('show');
+      document.getElementById('overlay').classList.add('show');
+    }
+
+    function hideEasterEgg() {
+      document.getElementById('easterEgg').classList.remove('show');
+      document.getElementById('overlay').classList.remove('show');
+    }
+
     function showPage(name) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
