@@ -255,6 +255,120 @@
     }
 
     /* ── PROJECTS PAGE ── */
+    .projects-intro {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--ink-light);
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--rule);
+      line-height: 1.75;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+
+    @media (max-width: 600px) {
+      .project-grid { grid-template-columns: 1fr; }
+    }
+
+    .project-card {
+      border: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .project-card:hover { border-color: var(--ink); }
+
+    .project-preview {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      background: var(--off-white);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .project-preview-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--off-white);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-preview-placeholder span {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    .project-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 0.6rem;
+    }
+
+    .project-tag {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    .project-name {
+      font-size: 1.1rem;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--ink);
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      line-height: 1.7;
+      margin: 0;
+      flex: 1;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .project-link {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .project-link:hover { color: var(--ink); }
+
     .coming-soon {
       display: flex;
       flex-direction: column;
@@ -523,10 +637,51 @@
   <!-- ── PROJECTS ── -->
   <div class="page" id="page-projects">
     <div class="container">
-      <div class="coming-soon">
-        <span class="coming-soon-label">Projects</span>
-        <h2 class="coming-soon-title">Coming soon.</h2>
-        <p class="coming-soon-sub">Work in progress — check back later.</p>
+
+      <p class="projects-intro">A record of things built — coursework, tools, and systems in progress.</p>
+
+      <div class="project-grid">
+
+        <!-- Project 1: IT-Cybersecurity-Planner -->
+        <div class="project-card">
+          <div class="project-preview-placeholder">
+            <span>IT Cybersecurity Planner</span>
+          </div>
+          <div class="project-body">
+            <span class="project-tag">HTML · GitHub Pages</span>
+            <span class="project-name">IT Cybersecurity Planner</span>
+            <p class="project-desc">My IT Cybersecurity academic and career roadmap at Los Angeles City College. Includes a dashboard tracking degree progress, semester load, milestones, and course distribution across GE and major units.</p>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/nattapongsindhu/IT-Cybersecurity-Planner" target="_blank">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
+              </a>
+              <a class="project-link" href="https://nattapongsindhu.github.io/IT-Cybersecurity-Planner/" target="_blank">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Site
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: LACC-CS101-Python-Labs -->
+        <div class="project-card">
+          <div class="project-preview-placeholder">
+            <span>CS101 Python Labs</span>
+          </div>
+          <div class="project-body">
+            <span class="project-tag">Python · LACC CS101</span>
+            <span class="project-name">LACC CS101 Python Labs</span>
+            <p class="project-desc">Python exercises and lab assignments for CS101 at Los Angeles City College. Includes foundational programs and structured labs — a working record of coursework as I build toward IT Cybersecurity.</p>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/nattapongsindhu/LACC-CS101-Python-Labs" target="_blank">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
