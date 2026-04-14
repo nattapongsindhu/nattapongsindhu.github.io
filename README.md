@@ -8,7 +8,7 @@ Personal portfolio and project showcase — IT Cybersecurity student at LACC, tr
 
 ## About
 
-Maintenance Mechanic at USPS Pasadena with 10+ years of hands-on experience diagnosing and repairing industrial systems. Currently pursuing IT Cybersecurity at Los Angeles City College (CompTIA A+ → Network+ → Security+ → CySA+ → PenTest+) and Pilot Training at Glendale Community College.
+Maintenance Mechanic at USPS Pasadena with 4 years of hands-on experience diagnosing and repairing industrial systems. Currently pursuing IT Cybersecurity at Los Angeles City College (CompTIA A+ → Network+ → Security+ → CySA+ → PenTest+) and Pilot Training at Glendale Community College.
 
 This site documents my projects, skills, and transition into cybersecurity.
 
