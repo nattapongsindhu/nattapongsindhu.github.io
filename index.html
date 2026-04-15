@@ -266,104 +266,71 @@
     }
 
     .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.75rem;
-    }
-
-    @media (max-width: 600px) {
-      .project-grid { grid-template-columns: 1fr; }
+      display: flex;
+      flex-direction: column;
     }
 
     .project-card {
-      border: 1px solid var(--rule);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      transition: border-color 0.2s;
-    }
-
-    .project-card:hover { border-color: var(--ink); }
-
-    .project-preview {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      object-position: top;
-      display: block;
-      background: var(--off-white);
+      padding: 1.1rem 0;
       border-bottom: 1px solid var(--rule);
+      transition: opacity 0.2s;
     }
 
-    .project-preview-placeholder {
-      width: 100%;
-      aspect-ratio: 16/9;
-      background: var(--off-white);
-      border-bottom: 1px solid var(--rule);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    .project-card:first-child { border-top: 1px solid var(--rule); }
+    .project-card:hover { opacity: 0.65; }
 
-    .project-preview-placeholder span {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-    }
+    .project-preview-placeholder { display: none; }
 
+    /* top row: name + links on same line */
     .project-body {
-      padding: 1.5rem;
       display: flex;
-      flex-direction: column;
-      flex: 1;
-      gap: 0.6rem;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.3rem;
     }
 
     .project-tag {
       font-family: var(--font-mono);
-      font-size: 0.62rem;
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-    }
-
-    .project-name {
-      font-size: 1.1rem;
-      font-weight: 500;
-      line-height: 1.3;
-      color: var(--ink);
-    }
-
-    .project-desc {
-      font-size: 0.88rem;
-      color: var(--ink-light);
-      line-height: 1.7;
-      margin: 0;
-      flex: 1;
-    }
-
-    .project-links {
-      display: flex;
-      gap: 1.25rem;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--rule);
-    }
-
-    .project-link {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.58rem;
       font-weight: 300;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--ink-light);
-      text-decoration: none;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .project-name {
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .project-desc {
+      font-size: 0.82rem;
+      color: var(--ink-light);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .project-links {
       display: flex;
-      align-items: center;
-      gap: 0.4rem;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    .project-link {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      white-space: nowrap;
       transition: color 0.2s;
     }
 
@@ -529,29 +496,7 @@
               <a href="https://www.linkedin.com/in/nattapong-sindhu-8313b4130" target="_blank">LinkedIn</a>
             </div>
             <div class="meta-item">
-              <svg width="15" height="15" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <radialGradient id="rg" cx="40%" cy="35%" r="65%">
-                    <stop offset="0%" stop-color="#5a6170"/>
-                    <stop offset="100%" stop-color="#2e333d"/>
-                  </radialGradient>
-                </defs>
-                <circle cx="16" cy="16" r="15" fill="url(#rg)"/>
-                <!-- left page -->
-                <rect x="7" y="9" width="8" height="13" rx="1" fill="white" opacity="0.95"/>
-                <!-- spine -->
-                <rect x="14.5" y="9" width="1" height="13" fill="#2e333d" opacity="0.3"/>
-                <!-- right page -->
-                <rect x="15" y="9" width="8" height="13" rx="1" fill="white" opacity="0.85"/>
-                <!-- lines on left page -->
-                <line x1="9" y1="12" x2="13" y2="12" stroke="#2e333d" stroke-width="0.8" stroke-opacity="0.4"/>
-                <line x1="9" y1="14" x2="13" y2="14" stroke="#2e333d" stroke-width="0.8" stroke-opacity="0.4"/>
-                <line x1="9" y1="16" x2="13" y2="16" stroke="#2e333d" stroke-width="0.8" stroke-opacity="0.4"/>
-                <!-- lines on right page -->
-                <line x1="17" y1="12" x2="21" y2="12" stroke="#2e333d" stroke-width="0.8" stroke-opacity="0.4"/>
-                <line x1="17" y1="14" x2="21" y2="14" stroke="#2e333d" stroke-width="0.8" stroke-opacity="0.4"/>
-                <line x1="17" y1="16" x2="21" y2="16" stroke="#2e333d" stroke-width="0.8" stroke-opacity="0.4"/>
-              </svg>
+              <svg class="icon-black" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
               <a href="https://nattapongsindhu.github.io/Resume/" target="_blank">Resume</a>
             </div>
           </div>
@@ -664,84 +609,100 @@
   <div class="page" id="page-projects">
     <div class="container">
 
-      <p class="projects-intro">A record of things built — coursework, tools, and systems in progress.</p>
+      <p class="projects-intro">A record of things built — automation pipelines, tools, and systems in progress.</p>
 
       <div class="project-grid">
 
-        <!-- Project 1: IT-Cybersecurity-Planner -->
         <div class="project-card">
-          <div class="project-preview-placeholder">
-            <span>IT Cybersecurity Planner</span>
-          </div>
+          <span class="project-tag">Python · GitHub Actions · Automation</span>
           <div class="project-body">
-            <span class="project-tag">HTML · GitHub Pages</span>
+            <span class="project-name">IT-For-Me</span>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/nattapongsindhu/it-for-me" target="_blank">GitHub ↗</a>
+              <a class="project-link" href="https://nattapongsindhu.github.io/it-for-me/" target="_blank">Live ↗</a>
+            </div>
+          </div>
+          <p class="project-desc">IT job listings near ZIP 90029, auto-updated twice daily. Fetches, filters, and publishes to a live dashboard — zero manual effort.</p>
+        </div>
+
+        <div class="project-card">
+          <span class="project-tag">Python · CI/CD · GitHub Actions</span>
+          <div class="project-body">
+            <span class="project-name">LA Weather Automet</span>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/nattapongsindhu/la-weather-automet" target="_blank">GitHub ↗</a>
+              <a class="project-link" href="https://nattapongsindhu.github.io/la-weather-automet/" target="_blank">Live ↗</a>
+            </div>
+          </div>
+          <p class="project-desc">Zero-cost pipeline — fetches LA weather every 6h, runs anomaly detection, generates SVG chart, publishes live dashboard. Includes unit tests and data validation.</p>
+        </div>
+
+        <div class="project-card">
+          <span class="project-tag">HTML · CSS · JavaScript · GitHub Pages</span>
+          <div class="project-body">
+            <span class="project-name">Resume</span>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/nattapongsindhu/Resume" target="_blank">GitHub ↗</a>
+              <a class="project-link" href="https://nattapongsindhu.github.io/Resume/" target="_blank">Live ↗</a>
+            </div>
+          </div>
+          <p class="project-desc">Single-page resume with dark/light theme toggle and print-to-PDF. Vanilla HTML/CSS/JS — no frameworks, no dependencies. Fits one A4 page.</p>
+        </div>
+
+        <div class="project-card">
+          <span class="project-tag">HTML · CSS · JavaScript · GitHub Pages</span>
+          <div class="project-body">
             <span class="project-name">IT Cybersecurity Planner</span>
-            <p class="project-desc">My IT Cybersecurity academic and career roadmap at Los Angeles City College. Includes a dashboard tracking degree progress, semester load, milestones, and course distribution across GE and major units.</p>
             <div class="project-links">
-              <a class="project-link" href="https://github.com/nattapongsindhu/IT-Cybersecurity-Planner" target="_blank">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-              </a>
-              <a class="project-link" href="https://nattapongsindhu.github.io/IT-Cybersecurity-Planner/" target="_blank">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                Live Site
-              </a>
+              <a class="project-link" href="https://github.com/nattapongsindhu/IT-Cybersecurity-Planner" target="_blank">GitHub ↗</a>
+              <a class="project-link" href="https://nattapongsindhu.github.io/IT-Cybersecurity-Planner/" target="_blank">Live ↗</a>
             </div>
           </div>
+          <p class="project-desc">Interactive dashboard tracking degree progress, semester load, and milestones for the Cybersecurity pathway at LACC.</p>
         </div>
 
-        <!-- Project 2: LACC-CS101-Python-Labs -->
         <div class="project-card">
-          <div class="project-preview-placeholder">
-            <span>CS101 Python Labs</span>
-          </div>
+          <span class="project-tag">Python · GitHub Actions · Automation</span>
           <div class="project-body">
-            <span class="project-tag">Python · LACC CS101</span>
-            <span class="project-name">LACC CS101 Python Labs</span>
-            <p class="project-desc">Python exercises and lab assignments for CS101 at Los Angeles City College. Includes foundational programs and structured labs — a working record of coursework as I build toward IT Cybersecurity.</p>
-            <div class="project-links">
-              <a class="project-link" href="https://github.com/nattapongsindhu/LACC-CS101-Python-Labs" target="_blank">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3: IT-Cybersecurity-Roadmap -->
-        <div class="project-card">
-          <div class="project-preview-placeholder">
-            <span>IT Cybersecurity Roadmap</span>
-          </div>
-          <div class="project-body">
-            <span class="project-tag">Markdown · Self-Directed</span>
-            <span class="project-name">IT Cybersecurity Roadmap</span>
-            <p class="project-desc">Self-directed study roadmap from CompTIA A+ through PenTest+. Maps each certification phase to LACC coursework and TryHackMe labs — 440 to 650+ hours across four structured phases.</p>
-            <div class="project-links">
-              <a class="project-link" href="https://github.com/nattapongsindhu/IT-Cybersecurity-Roadmap" target="_blank">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4: GitHub-Evolution -->
-        <div class="project-card">
-          <div class="project-preview-placeholder">
-            <span>GitHub Evolution</span>
-          </div>
-          <div class="project-body">
-            <span class="project-tag">Markdown · GitHub Actions</span>
             <span class="project-name">GitHub Evolution</span>
-            <p class="project-desc">Personal development tracking system with automated weekly reminders, quarterly goal reviews, and structured progress logging. Built with GitHub Actions — zero manual maintenance required.</p>
             <div class="project-links">
-              <a class="project-link" href="https://github.com/nattapongsindhu/GitHub-Evolution" target="_blank">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-              </a>
+              <a class="project-link" href="https://github.com/nattapongsindhu/GitHub-Evolution" target="_blank">GitHub ↗</a>
             </div>
           </div>
+          <p class="project-desc">Daily pipeline that fetches GitHub API stats and auto-generates a live README with commit streaks, active repos, and language breakdown.</p>
+        </div>
+
+        <div class="project-card">
+          <span class="project-tag">HTML · CSS · JavaScript · GitHub Pages</span>
+          <div class="project-body">
+            <span class="project-name">Portfolio Website</span>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/nattapongsindhu/nattapongsindhu.github.io" target="_blank">GitHub ↗</a>
+            </div>
+          </div>
+          <p class="project-desc">This site. Single-file architecture, no frameworks. EB Garamond + DM Mono. Includes a hidden Easter egg.</p>
+        </div>
+
+        <div class="project-card">
+          <span class="project-tag">Markdown · Self-Directed · CompTIA</span>
+          <div class="project-body">
+            <span class="project-name">IT Cybersecurity Roadmap</span>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/nattapongsindhu/IT-Cybersecurity-Roadmap" target="_blank">GitHub ↗</a>
+            </div>
+          </div>
+          <p class="project-desc">Study roadmap from CompTIA A+ through PenTest+. Mapped to LACC coursework and TryHackMe labs — 440 to 650+ hours across four phases.</p>
+        </div>
+
+        <div class="project-card">
+          <span class="project-tag">Python · LACC CS101</span>
+          <div class="project-body">
+            <span class="project-name">CS101 Python Labs</span>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/nattapongsindhu/LACC-CS101-Python-Labs" target="_blank">GitHub ↗</a>
+            </div>
+          </div>
+          <p class="project-desc">Lab assignments for CS101 at LACC — fundamentals, data structures, and scripting. Coursework record toward IT Cybersecurity.</p>
         </div>
 
       </div>
