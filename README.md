@@ -25,9 +25,13 @@ This site documents my projects, skills, and transition into cybersecurity.
 
 | Project | Description | Tech |
 |---|---|---|
+| [it-for-me](https://github.com/nattapongsindhu/it-for-me) | Tracks IT jobs, applications, analytics, and follow-ups | Python · GitHub Actions |
+| [it-asset-tracker](https://github.com/nattapongsindhu/it-asset-tracker) | Tracks IT assets, assignments, maintenance, and audit history | Next.js · Prisma · SQLite |
+| [network-configuration-guide](https://github.com/nattapongsindhu/network-configuration-guide) | Interactive network topology and configuration documentation portal | Next.js · Mermaid.js |
+| [LA-weather-automate](https://github.com/nattapongsindhu/la-weather-automet) | Automated weather data pipeline with scheduled updates and anomaly detection | Python · CI/CD · GitHub Actions |
+| [called-LA-home](https://github.com/nattapongsindhu/called-LA-home) | LA housing assistance search app with eligibility logic and Google Maps integration | Next.js · TypeScript · PWA |
 | [IT-Cybersecurity-Planner](https://github.com/nattapongsindhu/IT-Cybersecurity-Planner) | Interactive degree planner for LACC Cybersecurity pathway | HTML/CSS/JS |
 | [IT-Cybersecurity-Roadmap](https://github.com/nattapongsindhu/IT-Cybersecurity-Roadmap) | Self-directed study roadmap A+ through PenTest+ | Markdown |
-| [LACC-CS101-Python-Labs](https://github.com/nattapongsindhu/LACC-CS101-Python-Labs) | Python lab assignments — fundamentals, data structures, scripting | Python |
 
 ---
 
